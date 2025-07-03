@@ -14,11 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap&font-display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap&font-display=swap" rel="stylesheet" />
     
-    <!-- External Dependencies -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Link to your external stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- External Dependencies: Tailwind CDN removed. Use static CSS instead. -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="tailwind.min.css" media="all" />
+    <link rel="stylesheet" href="style.css" media="all" />
+    <script src="script.js" defer></script>
     
     <!--
       Security Note: This is static HTML. As long as you do not inject user input or use dynamic JS with untrusted data, it is safe from XSS, HTML, CSS, SQL, or other injection attacks.
@@ -29,73 +29,51 @@
     <!-- Sticky Header with Dropdown Navigation -->
     <header class="sticky-header glass-header">
       <nav class="nav-menu" aria-label="Main navigation">
-        <button class="nav-link" onclick="scrollToSection('file-management')">
+        <button class="nav-link" data-section="file-management">
           📁 File & Directory
         </button>
-        <button class="nav-link" onclick="scrollToSection('system-management')">
+        <button class="nav-link" data-section="system-management">
           ⚙️ System & Process
         </button>
-        <button class="nav-link" onclick="scrollToSection('advanced-ops')">
+        <button class="nav-link" data-section="advanced-ops">
           🛡️ Advanced Ops
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('network-connectivity')"
-        >
+        <button class="nav-link" data-section="network-connectivity">
           🌐 Network
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('system-diagnostics')"
-        >
+        <button class="nav-link" data-section="system-diagnostics">
           🩺 Diagnostics
         </button>
-        <button class="nav-link" onclick="scrollToSection('development-tools')">
+        <button class="nav-link" data-section="development-tools">
           👨‍💻 Dev & Build
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('system-admin-scripting')"
-        >
+        <button class="nav-link" data-section="system-admin-scripting">
           🖥️ SysAdmin & Scripting
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('sysinternals-tools')"
-        >
+        <button class="nav-link" data-section="sysinternals-tools">
           🔬 Sysinternals
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('windows-apps-shortcuts')"
-        >
+        <button class="nav-link" data-section="windows-apps-shortcuts">
           🖼️ Win Apps
         </button>
-        <button class="nav-link" onclick="scrollToSection('package-terminal')">
+        <button class="nav-link" data-section="package-terminal">
           📦 Packages
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('legacy-compatibility')"
-        >
+        <button class="nav-link" data-section="legacy-compatibility">
           🕰️ Legacy
         </button>
-        <button
-          class="nav-link"
-          onclick="scrollToSection('linux-like-commands')"
-        >
+        <button class="nav-link" data-section="linux-like-commands">
           🐧 Linux-like
         </button>
       </nav>
     </header>
     <main>
       <!-- Example: File & Directory Management Section (Glassmorphism, Collapsible) -->
-      <section id="file-management" class="section-container">
+      <section id="file-management" class="section-container collapsible-section" aria-expanded="false">
         <button
           class="section-toggle"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-controls="file-management-content"
-          onclick="toggleSection('file-management-content', this)"
         >
           📁 File & Directory Management
           <span class="arrow">▶</span>
@@ -103,15 +81,9 @@
         <div
           id="file-management-content"
           class="glass collapsible"
-          aria-expanded="true"
+          aria-expanded="false"
         >
           <h2>📁 File & Directory Management</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
-            These commands are the foundation of command-line interaction,
-            allowing you to navigate, create, delete, copy, and move files and
-            folders. Mastering them is essential for efficient file system
-            control.
-          </p>
           <div class="tool-grid">
             <!-- Navigation Card -->
             <div class="command-card glass">
@@ -234,12 +206,11 @@
         </div>
       </section>
       <!-- System & Process Management Section -->
-      <section id="system-management" class="section-container">
+      <section id="system-management" class="section-container collapsible-section" aria-expanded="false">
         <button
           class="section-toggle"
           aria-expanded="false"
           aria-controls="system-management-content"
-          onclick="toggleSection('system-management-content', this)"
         >
           ⚙️ System & Process Management
           <span class="arrow">▶</span>
@@ -250,12 +221,6 @@
           aria-expanded="false"
         >
           <h2>⚙️ System & Process Management</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
-            These commands give you direct control over your system's resources
-            and running applications. From monitoring processes to managing
-            system configurations, they are vital for system administrators and
-            power users.
-          </p>
           <div class="tool-grid">
             <!-- Tasks & Utilities -->
             <div class="command-card glass">
@@ -390,12 +355,11 @@
         </div>
       </section>
       <!-- Advanced Operations & Security Section -->
-      <section id="advanced-ops" class="section-container">
+      <section id="advanced-ops" class="section-container collapsible-section" aria-expanded="false">
         <button
           class="section-toggle"
           aria-expanded="false"
           aria-controls="advanced-ops-content"
-          onclick="toggleSection('advanced-ops-content', this)"
         >
           🛡️ Advanced Operations & Security
           <span class="arrow">▶</span>
@@ -406,11 +370,6 @@
           aria-expanded="false"
         >
           <h2>🛡️ Advanced Operations & Security</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
-            These commands delve into more complex system configurations, user
-            management, and security settings. They are powerful tools for
-            administrators to maintain system integrity and control access.
-          </p>
           <div class="tool-grid">
             <!-- User & Group Management -->
             <div class="command-card glass">
@@ -666,14 +625,13 @@
         </div>
       </section>
       <!-- Network & Connectivity Section -->
-      <section id="network-connectivity" class="section-container">
+      <section id="network-connectivity" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="network-connectivity-content" onclick="toggleSection('network-connectivity-content', this)">
           🌐 Network & Connectivity
           <span class="arrow">▶</span>
         </button>
         <div id="network-connectivity-content" class="glass collapsible" aria-expanded="false">
           <h2>🌐 Network & Connectivity</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">The command line is an indispensable tool for network diagnostics and management. From checking your Wi-Fi password to looking up a server's IP address, these commands give you a clear view of your connection to the world.</p>
           <div class="tool-grid">
             <div class="command-card glass">
               <h3>Wi-Fi Management</h3>
@@ -714,14 +672,13 @@
         </div>
       </section>
       <!-- System Diagnostics & Health Section -->
-      <section id="system-diagnostics" class="section-container">
+      <section id="system-diagnostics" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="system-diagnostics-content" onclick="toggleSection('system-diagnostics-content', this)">
           🩺 System Diagnostics & Health
           <span class="arrow">▶</span>
         </button>
         <div id="system-diagnostics-content" class="glass collapsible" aria-expanded="false">
           <h2>🩺 System Diagnostics & Health</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are crucial for maintaining the health, integrity, and performance of your Windows system. They help diagnose issues, repair system files, manage disks, and monitor performance.</p>
           <div class="tool-grid">
             <div class="command-card glass">
               <h3>File & Disk Integrity</h3>
@@ -753,14 +710,13 @@
         </div>
       </section>
       <!-- Development & Build Tools Section -->
-      <section id="development-tools" class="section-container">
+      <section id="development-tools" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="development-tools-content" onclick="toggleSection('development-tools-content', this)">
           👨‍💻 Development & Build Tools
           <span class="arrow">▶</span>
         </button>
         <div id="development-tools-content" class="glass collapsible" aria-expanded="false">
           <h2>👨‍💻 Development & Build Tools</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">For developers, the command line is indispensable for running compilers, package managers, version control, and IDEs. These commands facilitate the software development lifecycle directly from the terminal.</p>
           <div class="tool-grid">
             <div class="command-card glass">
               <h3>Languages & Runtimes</h3>
@@ -808,14 +764,13 @@
         </div>
       </section>
       <!-- System Administration & Scripting Section -->
-      <section id="system-admin-scripting" class="section-container">
+      <section id="system-admin-scripting" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="system-admin-scripting-content" onclick="toggleSection('system-admin-scripting-content', this)">
           🖥️ System Administration & Scripting
           <span class="arrow">▶</span>
         </button>
         <div id="system-admin-scripting-content" class="glass collapsible" aria-expanded="false">
           <h2>🖥️ System Administration & Scripting</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are essential for advanced system management, including managing services, scheduled tasks, registry modifications, and running scripts for automation.</p>
           <div class="tool-grid">
             <div class="command-card glass">
               <h3>Service & Task Management</h3>
@@ -858,14 +813,13 @@
         </div>
       </section>
       <!-- Sysinternals Tools Section -->
-      <section id="sysinternals-tools" class="section-container">
+      <section id="sysinternals-tools" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="sysinternals-tools-content" onclick="toggleSection('sysinternals-tools-content', this)">
           🔬 Sysinternals Tools (Advanced)
           <span class="arrow">▶</span>
         </button>
         <div id="sysinternals-tools-content" class="glass collapsible" aria-expanded="false">
           <h2>🔬 Sysinternals Tools (Advanced)</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">The Sysinternals Suite offers powerful utilities for advanced system monitoring, troubleshooting, and management. These tools provide deep insights into processes, file system activity, and network connections, often going beyond what built-in Windows tools offer.</p>
           <div class="tool-grid">
             <div class="command-card glass">
               <h3>Process & System Monitoring</h3>
@@ -904,14 +858,13 @@
         </div>
       </section>
       <!-- Windows Built-in Apps & Shortcuts Section -->
-      <section id="windows-apps-shortcuts" class="section-container">
+      <section id="windows-apps-shortcuts" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="windows-apps-shortcuts-content" onclick="toggleSection('windows-apps-shortcuts-content', this)">
           🖼️ Windows Built-in Apps & Shortcuts
           <span class="arrow">▶</span>
         </button>
         <div id="windows-apps-shortcuts-content" class="glass collapsible" aria-expanded="false">
           <h2>🖼️ Windows Built-in Apps & Shortcuts</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands and URI schemes allow you to launch various built-in Windows applications and settings directly from the command line, providing quick access to common tools and administrative consoles.</p>
           <div class="tool-grid three-cards">
             <div class="command-card glass">
               <h3>Core Applications</h3>
@@ -954,14 +907,13 @@
         </div>
       </section>
       <!-- Package Management & Terminal Section -->
-      <section id="package-terminal" class="section-container">
+      <section id="package-terminal" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="package-terminal-content" onclick="toggleSection('package-terminal-content', this)">
           📦 Package Management & Terminal
           <span class="arrow">▶</span>
         </button>
         <div id="package-terminal-content" class="glass collapsible" aria-expanded="false">
           <h2>📦 Package Management & Terminal</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">Modern Windows environments benefit from command-line package managers and advanced terminal applications, streamlining software installation and providing a more powerful command-line experience.</p>
           <div class="tool-grid two-cards">
             <div class="command-card glass">
               <h3>Package Managers</h3>
@@ -985,14 +937,13 @@
         </div>
       </section>
       <!-- Legacy & Compatibility Commands Section -->
-      <section id="legacy-compatibility" class="section-container">
+      <section id="legacy-compatibility" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="legacy-compatibility-content" onclick="toggleSection('legacy-compatibility-content', this)">
           🕰️ Legacy & Compatibility Commands
           <span class="arrow">▶</span>
         </button>
         <div id="legacy-compatibility-content" class="glass collapsible" aria-expanded="false">
           <h2>🕰️ Legacy & Compatibility Commands</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands originate from older versions of DOS and Windows, or are related to legacy system components. While some are still functional, they are often superseded by newer, more powerful tools and are primarily for historical or niche compatibility purposes.</p>
           <div class="tool-grid two-cards">
             <div class="command-card glass">
               <h3>DOS-era Utilities</h3>
@@ -1032,14 +983,13 @@
         </div>
       </section>
       <!-- Linux-like Commands (WSL/Git Bash Context) Section -->
-      <section id="linux-like-commands" class="section-container">
+      <section id="linux-like-commands" class="section-container collapsible-section" aria-expanded="false">
         <button class="section-toggle" aria-expanded="false" aria-controls="linux-like-commands-content" onclick="toggleSection('linux-like-commands-content', this)">
           🐧 Linux-like Commands (WSL/Git Bash)
           <span class="arrow">▶</span>
         </button>
         <div id="linux-like-commands-content" class="glass collapsible" aria-expanded="false">
           <h2>🐧 Linux-like Commands (WSL/Git Bash)</h2>
-          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are commonly found in Linux/Unix environments and are available on Windows through tools like Windows Subsystem for Linux (WSL) or Git Bash. They offer a powerful and often more concise way to interact with the file system and processes, especially for developers and those familiar with Unix-like systems.</p>
           <div class="tool-grid two-cards">
             <div class="command-card glass">
               <h3>Basic File & Directory</h3>
@@ -1083,8 +1033,8 @@
     <noscript>
       <div style="background:#fffae6;color:#333;padding:1rem;text-align:center;font-weight:bold;">This site works best with JavaScript enabled for navigation and collapsible sections.</div>
     </noscript>
-
-    <!-- Link to your external JavaScript file -->
-    <script src="script.js"></script>
+    <button id="backToTop" aria-label="Back to top" class="back-to-top" tabindex="0">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 8 16 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+    </button>
   </body>
 </html>

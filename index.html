@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows Command Line Infographic</title>
+    <meta
+      name="description"
+      content="The ultimate Windows CMD and PowerShell command guide. Learn file, system, network, and development commands with examples and best practices."
+    />
+    <!-- Google Fonts with font-display swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap&font-display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap&font-display=swap" rel="stylesheet" />
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!--
+      Security Note: This is static HTML. As long as you do not inject user input or use dynamic JS with untrusted data, it is safe from XSS, HTML, CSS, SQL, or other injection attacks.
+      For server-side: Enable gzip or Brotli compression for best performance.
+    -->
+  </head>
+  <body class="antialiased">
+    <!-- Sticky Header with Dropdown Navigation -->
+    <header class="sticky-header glass-header">
+      <nav class="nav-menu" aria-label="Main navigation">
+        <button class="nav-link" onclick="scrollToSection('file-management')">
+          📁 File & Directory
+        </button>
+        <button class="nav-link" onclick="scrollToSection('system-management')">
+          ⚙️ System & Process
+        </button>
+        <button class="nav-link" onclick="scrollToSection('advanced-ops')">
+          🛡️ Advanced Ops
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('network-connectivity')"
+        >
+          🌐 Network
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('system-diagnostics')"
+        >
+          🩺 Diagnostics
+        </button>
+        <button class="nav-link" onclick="scrollToSection('development-tools')">
+          👨‍💻 Dev & Build
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('system-admin-scripting')"
+        >
+          🖥️ SysAdmin & Scripting
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('sysinternals-tools')"
+        >
+          🔬 Sysinternals
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('windows-apps-shortcuts')"
+        >
+          🖼️ Win Apps
+        </button>
+        <button class="nav-link" onclick="scrollToSection('package-terminal')">
+          📦 Packages
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('legacy-compatibility')"
+        >
+          🕰️ Legacy
+        </button>
+        <button
+          class="nav-link"
+          onclick="scrollToSection('linux-like-commands')"
+        >
+          🐧 Linux-like
+        </button>
+      </nav>
+    </header>
+    <main>
+      <!-- Example: File & Directory Management Section (Glassmorphism, Collapsible) -->
+      <section id="file-management" class="section-container">
+        <button
+          class="section-toggle"
+          aria-expanded="true"
+          aria-controls="file-management-content"
+          onclick="toggleSection('file-management-content', this)"
+        >
+          📁 File & Directory Management
+          <span class="arrow">▶</span>
+        </button>
+        <div
+          id="file-management-content"
+          class="glass collapsible"
+          aria-expanded="true"
+        >
+          <h2>📁 File & Directory Management</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
+            These commands are the foundation of command-line interaction,
+            allowing you to navigate, create, delete, copy, and move files and
+            folders. Mastering them is essential for efficient file system
+            control.
+          </p>
+          <div class="tool-grid">
+            <!-- Navigation Card -->
+            <div class="command-card glass">
+              <h3>Navigation</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">cd <directory></code>: Change
+                  directory.
+                </li>
+                <li>
+                  <code class="command-name">cd ..</code>: Go back to the
+                  previous directory.
+                </li>
+                <li>
+                  <code class="command-name">cd /</code>: Go to the root
+                  partition.
+                </li>
+                <li>
+                  <code class="command-name">pushd <path></code>: Push
+                  directory.
+                </li>
+                <li><code class="command-name">popd</code>: Pop directory.</li>
+                <li><code class="command-name">cd %USERPROFILE%</code>: Go to user profile directory.</li>
+                <li><code class="command-name">cd %TEMP%</code>: Go to temporary directory.</li>
+                <li><code class="command-name">cd /d <drive:><path></code>: Change drive and directory.</li>
+              </ul>
+            </div>
+            <!-- Viewing Contents Card -->
+            <div class="command-card glass">
+              <h3>Viewing Contents</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">dir</code>: Show files and folders.
+                </li>
+                <li>
+                  <code class="command-name">type <file></code>: Display
+                  file contents.
+                </li>
+                <li>
+                  <code class="command-name">more <file></code>: Display
+                  file contents page-by-page.
+                </li>
+                <li>
+                  <code class="command-name">tree</code>: Display directory
+                  structure graphically.
+                </li>
+                <li><code class="command-name">dir /w</code>: Wide list format.</li>
+                <li><code class="command-name">dir /p</code>: Pause after each screen.</li>
+                <li><code class="command-name">dir /s</code>: Include subdirectories.</li>
+                <li><code class="command-name">dir /a</code>: Show hidden files.</li>
+                <li><code class="command-name">dir /o:n</code>: Sort by name.</li>
+                <li><code class="command-name">dir /o:d</code>: Sort by date.</li>
+                <li><code class="command-name">dir /o:s</code>: Sort by size.</li>
+                <li><code class="command-name">tree /f</code>: Show files in tree.</li>
+                <li><code class="command-name">tree /a</code>: Use ASCII characters.</li>
+              </ul>
+            </div>
+            <!-- Creation & Deletion Card -->
+            <div class="command-card glass">
+              <h3>Creation & Deletion</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">md <name></code> /
+                  <code class="command-name">mkdir <name></code>: Create a
+                  directory.
+                </li>
+                <li>
+                  <code class="command-name">rd <name></code> /
+                  <code class="command-name">rmdir <name></code>: Remove a
+                  directory.
+                </li>
+                <li>
+                  <code class="command-name">del <file></code> /
+                  <code class="command-name">erase <file></code>: Delete
+                  one or more files.
+                </li>
+              </ul>
+            </div>
+            <!-- Copying, Moving & Renaming Card -->
+            <div class="command-card glass">
+              <h3>Copying, Moving & Renaming</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name"
+                    >copy <source> <destination></code
+                  >: Copies files.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >xcopy <source> <destination></code
+                  >: Copies files and directory trees (advanced).
+                </li>
+                <li>
+                  <code class="command-name"
+                    >robocopy <source> <destination></code
+                  >: Robust file copy.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >move <source> <destination></code
+                  >: Moves files or directories.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >rename <old_name> <new_name></code
+                  >
+                  /
+                  <code class="command-name"
+                    >ren <old_name> <new_name></code
+                  >: Renames a file or directory.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >mklink <link> <target></code
+                  >: Create symbolic or hard links.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- System & Process Management Section -->
+      <section id="system-management" class="section-container">
+        <button
+          class="section-toggle"
+          aria-expanded="false"
+          aria-controls="system-management-content"
+          onclick="toggleSection('system-management-content', this)"
+        >
+          ⚙️ System & Process Management
+          <span class="arrow">▶</span>
+        </button>
+        <div
+          id="system-management-content"
+          class="glass collapsible"
+          aria-expanded="false"
+        >
+          <h2>⚙️ System & Process Management</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
+            These commands give you direct control over your system's resources
+            and running applications. From monitoring processes to managing
+            system configurations, they are vital for system administrators and
+            power users.
+          </p>
+          <div class="tool-grid">
+            <!-- Tasks & Utilities -->
+            <div class="command-card glass">
+              <h3>Tasks & Utilities</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">tasklist</code>: List running
+                  tasks.
+                </li>
+                <li>
+                  <code class="command-name">taskkill /pid 9716</code>: Kill the
+                  task with process ID 9716.
+                </li>
+                <li>
+                  <code class="command-name">calc</code>: Open the calculator.
+                </li>
+                <li>
+                  <code class="command-name">cls</code>: Clear the screen.
+                </li>
+                <li>
+                  <code class="command-name">winver</code>: Check Windows
+                  version.
+                </li>
+                <li>
+                  <code class="command-name">hostname</code>: Display the
+                  hostname of the computer.
+                </li>
+                <li>
+                  <code class="command-name">start <program></code>: Start
+                  a program or open a file/URL.
+                </li>
+                <li>
+                  <code class="command-name">title <text></code>: Set
+                  command prompt window title.
+                </li>
+                <li>
+                  <code class="command-name">color <attr></code>: Change
+                  console color.
+                </li>
+                <li>
+                  <code class="command-name">help <command></code>: Get
+                  help for a command.
+                </li>
+                <li>
+                  <code class="command-name">ver</code>: Display OS version.
+                </li>
+                <li>
+                  <code class="command-name">where <file></code>: Locate
+                  files in PATH.
+                </li>
+                <li>
+                  <code class="command-name">echo <message></code>:
+                  Display messages / control command echoing.
+                </li>
+                <li>
+                  <code class="command-name">pause</code>: Pause script
+                  execution.
+                </li>
+                <li>
+                  <code class="command-name">exit</code>: Exit command prompt or
+                  script.
+                </li>
+                <li>
+                  <code class="command-name">| (Pipe)</code>: Redirect output.
+                </li>
+                <li>
+                  <code class="command-name">> & >></code>: Redirect output to
+                  file.
+                </li>
+              </ul>
+            </div>
+            <!-- Hardware & Disk Info -->
+            <div class="command-card glass">
+              <h3>Hardware & Disk Info</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">driverquery</code>: List installed
+                  and missing drivers.
+                </li>
+                <li>
+                  <code class="command-name">wmic cpu</code>: Get CPU
+                  information.
+                </li>
+                <li>
+                  <code class="command-name">wmic nic get macaddress</code>: Get
+                  MAC address information.
+                </li>
+                <li>
+                  <code class="command-name">wmic process list brief</code>:
+                  List all processes.
+                </li>
+                <li>
+                  <code class="command-name">systeminfo</code>: Displays
+                  detailed system information.
+                </li>
+                <li>
+                  <code class="command-name">date</code>: Displays or sets the
+                  system date.
+                </li>
+                <li>
+                  <code class="command-name">time</code>: Displays or sets the
+                  system time.
+                </li>
+                <li>
+                  <code class="command-name">vol</code>: Displays the disk
+                  volume label and serial number.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >label <drive:> <new_label></code
+                  >: Change disk volume label.
+                </li>
+              </ul>
+            </div>
+            <!-- Firewall Control -->
+            <div class="command-card glass">
+              <h3>Firewall Control</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name"
+                    >netsh advfirewall set all state off</code
+                  >: Turn off the firewall.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >netsh advfirewall set all state on</code
+                  >: Turn on the firewall.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Advanced Operations & Security Section -->
+      <section id="advanced-ops" class="section-container">
+        <button
+          class="section-toggle"
+          aria-expanded="false"
+          aria-controls="advanced-ops-content"
+          onclick="toggleSection('advanced-ops-content', this)"
+        >
+          🛡️ Advanced Operations & Security
+          <span class="arrow">▶</span>
+        </button>
+        <div
+          id="advanced-ops-content"
+          class="glass collapsible"
+          aria-expanded="false"
+        >
+          <h2>🛡️ Advanced Operations & Security</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">
+            These commands delve into more complex system configurations, user
+            management, and security settings. They are powerful tools for
+            administrators to maintain system integrity and control access.
+          </p>
+          <div class="tool-grid">
+            <!-- User & Group Management -->
+            <div class="command-card glass">
+              <h3>User & Group Management</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">lusrmgr.msc</code>: Open Windows
+                  user management tool.
+                </li>
+                <li>
+                  <code class="command-name">net user</code>: Check all users.
+                </li>
+                <li>
+                  <code class="command-name">net localgroup</code>: Manage local
+                  groups.
+                </li>
+                <li>
+                  <code class="command-name">query user</code> /
+                  <code class="command-name">quser</code>: Query user sessions.
+                </li>
+                <li>
+                  <code class="command-name">net accounts</code>: Manage user
+                  account policy.
+                </li>
+                <li>
+                  <code class="command-name">net group</code>: Manage global
+                  groups.
+                </li>
+                <li>
+                  <code class="command-name">whoami</code>: Display current user
+                  info.
+                </li>
+                <li>
+                  <code class="command-name">net user hacker 123456 /add</code>:
+                  Add user 'hacker' with password '123456'.
+                </li>
+                <li>
+                  <code class="command-name">net user hacker /del</code>: Delete
+                  user 'hacker'.
+                </li>
+                <li>
+                  <code class="command-name">logoff</code>: Log off a user.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >runas /user:<user> <command></code
+                  >: Run as different user.
+                </li>
+                <li>
+                  <code class="command-name">net user <username> /active:no</code>: Disable user account.
+                </li>
+                <li>
+                  <code class="command-name">net user <username> /active:yes</code>: Enable user account.
+                </li>
+                <li>
+                  <code class="command-name">net user <username> /passwordchg:no</code>: Prevent password change.
+                </li>
+              </ul>
+            </div>
+            <!-- Security & Attributes -->
+            <div class="command-card glass">
+              <h3>Security & Attributes</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">cipher /e</code>: Encrypt files.
+                </li>
+                <li>
+                  <code class="command-name">cipher /d</code>: Decrypt files.
+                </li>
+                <li>
+                  <code class="command-name">attrib +h +r +s</code>: Hide files.
+                </li>
+                <li>
+                  <code class="command-name">attrib -h -r -s</code>: Unhide
+                  files.
+                </li>
+                <li>
+                  <code class="command-name">compact /c /s:<dir></code>:
+                  Compress files/folders.
+                </li>
+                <li>
+                  <code class="command-name">takeown /f <file></code>:
+                  Take ownership of a file.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >icacls <file> /grant <user>:F</code
+                  >: Set file permissions (advanced).
+                </li>
+                <li>
+                  <code class="command-name"
+                    >cacls <file> /g <user>:F</code
+                  >: Set file permissions (legacy).
+                </li>
+                <li>
+                  <code class="command-name">cipher /w:<drive></code>: Securely wipe free space.
+                </li>
+                <li>
+                  <code class="command-name">attrib +s <file></code>: Set system attribute.
+                </li>
+                <li>
+                  <code class="command-name">attrib +a <file></code>: Set archive attribute.
+                </li>
+              </ul>
+            </div>
+            <!-- Group Policy & Security Config -->
+            <div class="command-card glass">
+              <h3>Group Policy & Security Config</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">gpupdate</code>: Update Group
+                  Policy.
+                </li>
+                <li>
+                  <code class="command-name">gpresult /r</code>: Display Group
+                  Policy results.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >secedit /configure /db <file></code
+                  >: Configure security.
+                </li>
+                <li>
+                  <code class="command-name">gpresult /h report.html</code>: Generate HTML report.
+                </li>
+                <li>
+                  <code class="command-name">gpresult /z</code>: Display super verbose output.
+                </li>
+                <li>
+                  <code class="command-name">secedit /export /cfg <file></code>: Export security configuration.
+                </li>
+                <li>
+                  <code class="command-name">secedit /validate <file></code>: Validate security template.
+                </li>
+              </ul>
+            </div>
+            <!-- Audit & Event Logging -->
+            <div class="command-card glass">
+              <h3>Audit & Event Logging</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">auditpol /get /category:*</code>:
+                  Get audit policy.
+                </li>
+                <li>
+                  <code class="command-name">relog <log></code>: Relog
+                  performance counters.
+                </li>
+                <li>
+                  <code class="command-name">wevtutil el</code>: List event
+                  logs.
+                </li>
+                <li>
+                  <code class="command-name">openfiles /query</code>: Query open
+                  files.
+                </li>
+                <li>
+                  <code class="command-name">auditpol /set /category:* /success:enable</code>: Enable success auditing.
+                </li>
+                <li>
+                  <code class="command-name">auditpol /set /category:* /failure:enable</code>: Enable failure auditing.
+                </li>
+                <li>
+                  <code class="command-name">wevtutil qe <log> /f:text</code>: Query event log.
+                </li>
+                <li>
+                  <code class="command-name">wevtutil cl <log></code>: Clear event log.
+                </li>
+              </ul>
+            </div>
+            <!-- Registry & Service Management -->
+            <div class="command-card glass">
+              <h3>Registry & Service Mgmt</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">reg query <key></code>: Query
+                  registry.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >reg add <key> /v <name> /t <type> /d
+                    <data></code
+                  >: Add registry entry.
+                </li>
+                <li>
+                  <code class="command-name"
+                    >reg delete <key> /v <name></code
+                  >: Delete registry entry.
+                </li>
+                <li>
+                  <code class="command-name">sc query <service></code>:
+                  Query service status.
+                </li>
+                <li>
+                  <code class="command-name">net start <service></code>:
+                  Start a service.
+                </li>
+                <li>
+                  <code class="command-name">net stop <service></code>:
+                  Stop a service.
+                </li>
+                <li>
+                  <code class="command-name">svchost</code>: Host for services.
+                </li>
+                <li>
+                  <code class="command-name">reg export <key> <file></code>: Export registry key.
+                </li>
+                <li>
+                  <code class="command-name">reg import <file></code>: Import registry file.
+                </li>
+                <li>
+                  <code class="command-name">sc config <service> start=auto</code>: Set service to auto-start.
+                </li>
+                <li>
+                  <code class="command-name">sc config <service> start=disabled</code>: Disable service.
+                </li>
+              </ul>
+            </div>
+            <!-- Scheduled Tasks -->
+            <div class="command-card glass">
+              <h3>Scheduled Tasks</h3>
+              <ul class="space-y-3">
+                <li>
+                  <code class="command-name">schtasks /create</code>: Create
+                  scheduled task.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /query</code>: Query
+                  scheduled tasks.
+                </li>
+                <li>
+                  <code class="command-name">taskschd.msc</code>: Open Task
+                  Scheduler.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /delete /tn <taskname></code>: Delete scheduled task.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /run /tn <taskname></code>: Run scheduled task immediately.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /end /tn <taskname></code>: End running scheduled task.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /change /tn <taskname> /enable</code>: Enable scheduled task.
+                </li>
+                <li>
+                  <code class="command-name">schtasks /change /tn <taskname> /disable</code>: Disable scheduled task.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Network & Connectivity Section -->
+      <section id="network-connectivity" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="network-connectivity-content" onclick="toggleSection('network-connectivity-content', this)">
+          🌐 Network & Connectivity
+          <span class="arrow">▶</span>
+        </button>
+        <div id="network-connectivity-content" class="glass collapsible" aria-expanded="false">
+          <h2>🌐 Network & Connectivity</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">The command line is an indispensable tool for network diagnostics and management. From checking your Wi-Fi password to looking up a server's IP address, these commands give you a clear view of your connection to the world.</p>
+          <div class="tool-grid">
+            <div class="command-card glass">
+              <h3>Wi-Fi Management</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">netsh wlan show profiles</code>: Show all Wi-Fi profiles.</li>
+                <li><code class="command-name">netsh wlan show all</code>: Show all network information.</li>
+                <li><code class="command-name">netsh wlan show profile blackhat key=clear</code>: Show Wi-Fi password for 'blackhat' profile.</li>
+                <li><code class="command-name">netsh wlan delete profile name=blackhat</code>: Delete Wi-Fi profile 'blackhat'.</li>
+                <li><code class="command-name">netsh</code>: Network Shell utility.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Network Diagnostics</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">ipconfig</code>: Display IP configuration.</li>
+                <li><code class="command-name">ping <host></code>: Send ICMP echo requests.</li>
+                <li><code class="command-name">tracert <host></code>: Trace route to host.</li>
+                <li><code class="command-name">pathping <host></code>: Trace route with latency.</li>
+                <li><code class="command-name">netstat -e</code>: Check data usage.</li>
+                <li><code class="command-name">netstat -an</code>: Display all connections and listening ports.</li>
+                <li><code class="command-name">nbtstat -a <IP></code>: Display NetBIOS over TCP/IP statistics.</li>
+                <li><code class="command-name">arp -a</code>: Display ARP cache.</li>
+                <li><code class="command-name">route print</code>: Display routing table.</li>
+                <li><code class="command-name">net view</code>: View network resources.</li>
+                <li><code class="command-name">net session</code>: List network sessions.</li>
+                <li><code class="command-name">net share</code>: List network shares.</li>
+                <li><code class="command-name">net use <drive:> \\<server>\<share></code>: Map network drive.</li>
+                <li><code class="command-name">net config server</code>: Display server configuration.</li>
+                <li><code class="command-name">telnet <host> <port></code>: Telnet client (if installed).</li>
+                <li><code class="command-name">ftp <host></code>: FTP client.</li>
+                <li><code class="command-name">tftp <host> get <file></code>: TFTP client.</li>
+                <li><code class="command-name">nslookup google.com</code>: Get IP address of google.com.</li>
+                <li><code class="command-name">curl <URL></code>: Transfer data from/to a server.</li>
+                <li><code class="command-name">wget <URL></code>: Download files from the web.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- System Diagnostics & Health Section -->
+      <section id="system-diagnostics" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="system-diagnostics-content" onclick="toggleSection('system-diagnostics-content', this)">
+          🩺 System Diagnostics & Health
+          <span class="arrow">▶</span>
+        </button>
+        <div id="system-diagnostics-content" class="glass collapsible" aria-expanded="false">
+          <h2>🩺 System Diagnostics & Health</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are crucial for maintaining the health, integrity, and performance of your Windows system. They help diagnose issues, repair system files, manage disks, and monitor performance.</p>
+          <div class="tool-grid">
+            <div class="command-card glass">
+              <h3>File & Disk Integrity</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">sfc /scannow</code>: System File Checker.</li>
+                <li><code class="command-name">chkdsk</code>: Check disk.</li>
+                <li><code class="command-name">diskpart</code>: Disk Partition Utility.</li>
+                <li><code class="command-name">format <drive:></code>: Format a disk.</li>
+                <li><code class="command-name">bootrec /fixmbr</code>: Repair boot configuration.</li>
+                <li><code class="command-name">reagentc /info</code>: Windows Recovery Environment config.</li>
+                <li><code class="command-name">bcdedit /enum</code>: Boot Configuration Data editor.</li>
+                <li><code class="command-name">cleanmgr</code>: Disk Cleanup utility.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Performance & Event Monitoring</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">perfmon</code>: Performance Monitor.</li>
+                <li><code class="command-name">eventvwr</code>: Event Viewer.</li>
+                <li><code class="command-name">dxdiag</code>: DirectX Diagnostic Tool.</li>
+                <li><code class="command-name">resmon</code>: Resource Monitor.</li>
+                <li><code class="command-name">msinfo32</code>: System Information.</li>
+                <li><code class="command-name">lodctr</code>: Load/Unload Perfmon Counters.</li>
+                <li><code class="command-name">vssadmin list shadows</code>: Volume Shadow Copy Service.</li>
+                <li><code class="command-name">drwtsn32</code>: Dr. Watson Debugger (Legacy).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Development & Build Tools Section -->
+      <section id="development-tools" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="development-tools-content" onclick="toggleSection('development-tools-content', this)">
+          👨‍💻 Development & Build Tools
+          <span class="arrow">▶</span>
+        </button>
+        <div id="development-tools-content" class="glass collapsible" aria-expanded="false">
+          <h2>👨‍💻 Development & Build Tools</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">For developers, the command line is indispensable for running compilers, package managers, version control, and IDEs. These commands facilitate the software development lifecycle directly from the terminal.</p>
+          <div class="tool-grid">
+            <div class="command-card glass">
+              <h3>Languages & Runtimes</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">python</code>: Python interpreter.</li>
+                <li><code class="command-name">java</code>: Java runtime.</li>
+                <li><code class="command-name">javac</code>: Java compiler.</li>
+                <li><code class="command-name">node</code>: Node.js runtime.</li>
+                <li><code class="command-name">dotnet</code>: .NET CLI.</li>
+                <li><code class="command-name">php</code>: PHP interpreter.</li>
+                <li><code class="command-name">go</code>: Go language compiler/tool.</li>
+                <li><code class="command-name">rustc</code>: Rust compiler.</li>
+                <li><code class="command-name">cl</code>: MSVC C/C++ compiler.</li>
+                <li><code class="command-name">g++</code>: GNU C++ compiler.</li>
+                <li><code class="command-name">clang</code>: Clang C/C++/Objective-C compiler.</li>
+                <li><code class="command-name">tsc</code>: TypeScript compiler.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Package Managers & Version Control</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">pip</code>: Python package installer.</li>
+                <li><code class="command-name">npm</code>: Node.js package manager.</li>
+                <li><code class="command-name">npx</code>: Execute Node.js packages.</li>
+                <li><code class="command-name">git</code>: Version control system.</li>
+                <li><code class="command-name">svn</code>: Subversion.</li>
+                <li><code class="command-name">hg</code>: Mercurial.</li>
+                <li><code class="command-name">cargo</code>: Rust package manager/build system.</li>
+                <li><code class="command-name">composer</code>: PHP dependency manager.</li>
+                <li><code class="command-name">yarn</code>: Fast, reliable, secure Node.js package manager.</li>
+                <li><code class="command-name">pnpm</code>: Performant Node.js package manager.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Build Systems & IDEs</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">msbuild</code>: Microsoft Build Engine.</li>
+                <li><code class="command-name">cmake</code>: Cross-platform build system generator.</li>
+                <li><code class="command-name">make</code>: Build automation tool.</li>
+                <li><code class="command-name">code</code>: Visual Studio Code.</li>
+                <li><code class="command-name">devenv</code>: Visual Studio IDE.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- System Administration & Scripting Section -->
+      <section id="system-admin-scripting" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="system-admin-scripting-content" onclick="toggleSection('system-admin-scripting-content', this)">
+          🖥️ System Administration & Scripting
+          <span class="arrow">▶</span>
+        </button>
+        <div id="system-admin-scripting-content" class="glass collapsible" aria-expanded="false">
+          <h2>🖥️ System Administration & Scripting</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are essential for advanced system management, including managing services, scheduled tasks, registry modifications, and running scripts for automation.</p>
+          <div class="tool-grid">
+            <div class="command-card glass">
+              <h3>Service & Task Management</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">sc query <service></code>: Query service status.</li>
+                <li><code class="command-name">net start <service></code>: Start a service.</li>
+                <li><code class="command-name">net stop <service></code>: Stop a service.</li>
+                <li><code class="command-name">schtasks /create</code>: Create scheduled task.</li>
+                <li><code class="command-name">schtasks /query</code>: Query scheduled tasks.</li>
+                <li><code class="command-name">taskschd.msc</code>: Open Task Scheduler.</li>
+                <li><code class="command-name">logman query</code>: Manage performance logs.</li>
+                <li><code class="command-name">svchost</code>: Host for services.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Registry Management</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">reg query <key></code>: Query registry.</li>
+                <li><code class="command-name">reg add <key> /v <name> /t <type> /d <data></code>: Add registry entry.</li>
+                <li><code class="command-name">reg delete <key> /v <name></code>: Delete registry entry.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Scripting & Utilities</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">powershell</code>: Launch PowerShell.</li>
+                <li><code class="command-name">cmdkey /list</code>: Credential Manager.</li>
+                <li><code class="command-name">mshta <file.hta></code>: HTML Application host.</li>
+                <li><code class="command-name">msiexec /i <package.msi></code>: Windows Installer.</li>
+                <li><code class="command-name">rundll32 <dll>,<entrypoint></code>: Run DLL function.</li>
+                <li><code class="command-name">wscript <script.vbs></code>: Windows Script Host (VBScript/JScript).</li>
+                <li><code class="command-name">cscript <script.vbs></code>: Windows Script Host (console).</li>
+                <li><code class="command-name">tzutil /g</code>: Time Zone Utility.</li>
+                <li><code class="command-name">slmgr /dli</code>: Windows Software Licensing Management Tool.</li>
+                <li><code class="command-name">bdehdcfg</code>: BitLocker Drive Encryption.</li>
+                <li><code class="command-name">bcdboot <source></code>: Create/repair boot files.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Sysinternals Tools Section -->
+      <section id="sysinternals-tools" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="sysinternals-tools-content" onclick="toggleSection('sysinternals-tools-content', this)">
+          🔬 Sysinternals Tools (Advanced)
+          <span class="arrow">▶</span>
+        </button>
+        <div id="sysinternals-tools-content" class="glass collapsible" aria-expanded="false">
+          <h2>🔬 Sysinternals Tools (Advanced)</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">The Sysinternals Suite offers powerful utilities for advanced system monitoring, troubleshooting, and management. These tools provide deep insights into processes, file system activity, and network connections, often going beyond what built-in Windows tools offer.</p>
+          <div class="tool-grid">
+            <div class="command-card glass">
+              <h3>Process & System Monitoring</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">procexp</code>: Process Explorer.</li>
+                <li><code class="command-name">procmon</code>: Process Monitor.</li>
+                <li><code class="command-name">autoruns</code>: Autoruns utility.</li>
+                <li><code class="command-name">pslist</code>: List processes (PsTools).</li>
+                <li><code class="command-name">psinfo</code>: System information (PsTools).</li>
+                <li><code class="command-name">du</code>: Disk Usage (Sysinternals).</li>
+                <li><code class="command-name">diskmon</code>: Disk Activity Monitor.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Process Control & File Utilities</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">psexec <command></code>: Execute processes remotely.</li>
+                <li><code class="command-name">pskill <process></code>: Kill process (PsTools).</li>
+                <li><code class="command-name">handle <process></code>: View open handles.</li>
+                <li><code class="command-name">sdelete -z <file></code>: Securely delete files.</li>
+                <li><code class="command-name">strings <file></code>: Extract strings from files.</li>
+                <li><code class="command-name">sigcheck <file></code>: Verify file signatures.</li>
+                <li><code class="command-name">contig <file></code>: Defragment files.</li>
+                <li><code class="command-name">accesschk <user> <path></code>: Check access permissions.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Network & Info Gathering</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">tcpview</code>: TCP/UDP endpoint viewer.</li>
+                <li><code class="command-name">whois <domain></code>: Domain registration lookup.</li>
+                <li><code class="command-name">bginfo</code>: Desktop background info.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Windows Built-in Apps & Shortcuts Section -->
+      <section id="windows-apps-shortcuts" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="windows-apps-shortcuts-content" onclick="toggleSection('windows-apps-shortcuts-content', this)">
+          🖼️ Windows Built-in Apps & Shortcuts
+          <span class="arrow">▶</span>
+        </button>
+        <div id="windows-apps-shortcuts-content" class="glass collapsible" aria-expanded="false">
+          <h2>🖼️ Windows Built-in Apps & Shortcuts</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands and URI schemes allow you to launch various built-in Windows applications and settings directly from the command line, providing quick access to common tools and administrative consoles.</p>
+          <div class="tool-grid three-cards">
+            <div class="command-card glass">
+              <h3>Core Applications</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">explorer.exe</code>: Open File Explorer.</li>
+                <li><code class="command-name">calc</code>: Open Calculator.</li>
+                <li><code class="command-name">notepad</code>: Open Notepad.</li>
+                <li><code class="command-name">mspaint</code>: Open Paint.</li>
+                <li><code class="command-name">snippingtool</code>: Open Snipping Tool.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Settings & URI Schemes</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">start ms-settings:</code>: Open Settings app.</li>
+                <li><code class="command-name">start bing:</code>: Open Bing search.</li>
+                <li><code class="command-name">start microsoft-edge:</code>: Open Microsoft Edge.</li>
+                <li><code class="command-name">start outlook:</code>: Open Outlook.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Control Panel Applets & MMC Snap-ins</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">services.msc</code>: Services management.</li>
+                <li><code class="command-name">compmgmt.msc</code>: Computer Management.</li>
+                <li><code class="command-name">devmgmt.msc</code>: Device Manager.</li>
+                <li><code class="command-name">gpedit.msc</code>: Local Group Policy Editor.</li>
+                <li><code class="command-name">eventvwr.msc</code>: Event Viewer.</li>
+                <li><code class="command-name">secpol.msc</code>: Local Security Policy.</li>
+                <li><code class="command-name">appwiz.cpl</code>: Programs and Features.</li>
+                <li><code class="command-name">firewall.cpl</code>: Windows Defender Firewall.</li>
+                <li><code class="command-name">sysdm.cpl</code>: System Properties.</li>
+                <li><code class="command-name">ncpa.cpl</code>: Network Connections.</li>
+                <li><code class="command-name">inetcpl.cpl</code>: Internet Properties.</li>
+                <li><code class="command-name">lusrmgr.msc</code>: Local Users and Groups.</li>
+                <li><code class="command-name">diskmgmt.msc</code>: Disk Management.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Package Management & Terminal Section -->
+      <section id="package-terminal" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="package-terminal-content" onclick="toggleSection('package-terminal-content', this)">
+          📦 Package Management & Terminal
+          <span class="arrow">▶</span>
+        </button>
+        <div id="package-terminal-content" class="glass collapsible" aria-expanded="false">
+          <h2>📦 Package Management & Terminal</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">Modern Windows environments benefit from command-line package managers and advanced terminal applications, streamlining software installation and providing a more powerful command-line experience.</p>
+          <div class="tool-grid two-cards">
+            <div class="command-card glass">
+              <h3>Package Managers</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">winget</code>: Windows Package Manager.</li>
+                <li><code class="command-name">choco</code>: Chocolatey Package Manager.</li>
+                <li><code class="command-name">pip</code>: Python Package Installer.</li>
+                <li><code class="command-name">npm</code>: Node.js Package Manager.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Terminal Applications</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">wt</code>: Windows Terminal.</li>
+                <li><code class="command-name">cmd</code>: Command Prompt.</li>
+                <li><code class="command-name">powershell</code>: Windows PowerShell.</li>
+                <li><code class="command-name">terminal</code>: (Alias for wt).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Legacy & Compatibility Commands Section -->
+      <section id="legacy-compatibility" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="legacy-compatibility-content" onclick="toggleSection('legacy-compatibility-content', this)">
+          🕰️ Legacy & Compatibility Commands
+          <span class="arrow">▶</span>
+        </button>
+        <div id="legacy-compatibility-content" class="glass collapsible" aria-expanded="false">
+          <h2>🕰️ Legacy & Compatibility Commands</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands originate from older versions of DOS and Windows, or are related to legacy system components. While some are still functional, they are often superseded by newer, more powerful tools and are primarily for historical or niche compatibility purposes.</p>
+          <div class="tool-grid two-cards">
+            <div class="command-card glass">
+              <h3>DOS-era Utilities</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">debug</code>: Debugger (Legacy).</li>
+                <li><code class="command-name">edlin</code>: Line editor (Legacy).</li>
+                <li><code class="command-name">qbasic</code>: QBasic interpreter (Legacy).</li>
+                <li><code class="command-name">command.com</code>: DOS command interpreter (Legacy).</li>
+                <li><code class="command-name">doskey</code>: Command-line history and macros.</li>
+                <li><code class="command-name">msav</code>: Microsoft Anti-Virus (Legacy).</li>
+                <li><code class="command-name">interlnk</code>: Interlink client (Legacy).</li>
+                <li><code class="command-name">assign <drive>=<new_drive></code>: Assign drive letter (Legacy).</li>
+                <li><code class="command-name">append <path></code>: Set search path for data files (Legacy).</li>
+                <li><code class="command-name">join <drive> <path></code>: Join drive to directory (Legacy).</li>
+                <li><code class="command-name">sort <file></code>: Sort text file.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>MMC Snap-ins & Control Panel Applets</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">services.msc</code>: Services management.</li>
+                <li><code class="command-name">compmgmt.msc</code>: Computer Management.</li>
+                <li><code class="command-name">devmgmt.msc</code>: Device Manager.</li>
+                <li><code class="command-name">gpedit.msc</code>: Local Group Policy Editor.</li>
+                <li><code class="command-name">eventvwr.msc</code>: Event Viewer.</li>
+                <li><code class="command-name">secpol.msc</code>: Local Security Policy.</li>
+                <li><code class="command-name">appwiz.cpl</code>: Programs and Features.</li>
+                <li><code class="command-name">firewall.cpl</code>: Windows Defender Firewall.</li>
+                <li><code class="command-name">sysdm.cpl</code>: System Properties.</li>
+                <li><code class="command-name">ncpa.cpl</code>: Network Connections.</li>
+                <li><code class="command-name">inetcpl.cpl</code>: Internet Properties.</li>
+                <li><code class="command-name">lusrmgr.msc</code>: Local Users and Groups.</li>
+                <li><code class="command-name">diskmgmt.msc</code>: Disk Management.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Linux-like Commands (WSL/Git Bash Context) Section -->
+      <section id="linux-like-commands" class="section-container">
+        <button class="section-toggle" aria-expanded="false" aria-controls="linux-like-commands-content" onclick="toggleSection('linux-like-commands-content', this)">
+          🐧 Linux-like Commands (WSL/Git Bash)
+          <span class="arrow">▶</span>
+        </button>
+        <div id="linux-like-commands-content" class="glass collapsible" aria-expanded="false">
+          <h2>🐧 Linux-like Commands (WSL/Git Bash)</h2>
+          <p class="text-center text-lg max-w-3xl mx-auto mb-10">These commands are commonly found in Linux/Unix environments and are available on Windows through tools like Windows Subsystem for Linux (WSL) or Git Bash. They offer a powerful and often more concise way to interact with the file system and processes, especially for developers and those familiar with Unix-like systems.</p>
+          <div class="tool-grid two-cards">
+            <div class="command-card glass">
+              <h3>Basic File & Directory</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">ls</code>: List directory contents.</li>
+                <li><code class="command-name">pwd</code>: Print working directory.</li>
+                <li><code class="command-name">clear</code>: Clear terminal screen.</li>
+                <li><code class="command-name">rm <file></code>: Remove files or directories.</li>
+                <li><code class="command-name">mv <source> <destination></code>: Move or rename files/directories.</li>
+                <li><code class="command-name">cp <source> <destination></code>: Copy files/directories.</li>
+                <li><code class="command-name">touch <file></code>: Create empty file or update timestamp.</li>
+              </ul>
+            </div>
+            <div class="command-card glass">
+              <h3>Text Processing & System Info</h3>
+              <ul class="space-y-3">
+                <li><code class="command-name">cat <file></code>: Concatenate and display files.</li>
+                <li><code class="command-name">grep <pattern> <file></code>: Search text.</li>
+                <li><code class="command-name">head <file></code>: Display first lines of file.</li>
+                <li><code class="command-name">tail <file></code>: Display last lines of file.</li>
+                <li><code class="command-name">less <file></code>: View file interactively.</li>
+                <li><code class="command-name">env</code>: Display environment variables.</li>
+                <li><code class="command-name">printenv</code>: Display environment variables (alternative).</li>
+                <li><code class="command-name">history</code>: Display command history.</li>
+                <li><code class="command-name">man <command></code>: Display manual page.</li>
+                <li><code class="command-name">top</code>: Display Linux processes (interactive).</li>
+                <li><code class="command-name">htop</code>: Interactive process viewer (enhanced).</li>
+                <li><code class="command-name">alias <name>=<command></code>: Create command alias.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="text-center mt-16 py-8 border-t-2 border-[#33A1FF]">
+      <p class="text-white">
+        This infographic provides a visual guide to essential Windows commands.
+        Experiment in a safe environment to build your skills.<br />
+      </p>
+    </footer>
+    <noscript>
+      <div style="background:#fffae6;color:#333;padding:1rem;text-align:center;font-weight:bold;">This site works best with JavaScript enabled for navigation and collapsible sections.</div>
+    </noscript>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
